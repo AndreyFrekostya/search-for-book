@@ -1,0 +1,9 @@
+.header{
+    background-image: url('../../background-test2.jpg');
+    
+}
+.row{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
