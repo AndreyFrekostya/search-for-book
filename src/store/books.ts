@@ -35,11 +35,18 @@ class Books{
         .then(res=>{
             if(res.data.items!==undefined){
                 runInAction(()=>{
-                    let set:Set<Book>=new Set(res.data.items)
-                    let items:Book[]=Array.from(set)
+                    const items = res.data.items.reduce((o:Book[], i:Book) => {
+                        if (!o.find((v:Book) => v.id == i.id)) {
+                            o.push(i);
+                        }
+                        return o;
+                    }, []);
                     this.books=this.books.concat(items)
-                    this.total=res.data.totalItems
+                    this.total=res.data.totalItems-(30-items.length)
                     this.status='success'  
+                    //or instead of reduce - set:
+                        //let set:Set<Book>=new Set(res.data.items)
+                        //let items:Book[]=Array.from(set)
                 })
             }
             else{
