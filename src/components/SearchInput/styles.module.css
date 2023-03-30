@@ -21,3 +21,6 @@
     right: 2px;
     font-size: 30px;
 }
+.wrap>svg:hover{
+    cursor: pointer;
+}

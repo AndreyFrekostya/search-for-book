@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Box, Typography,Select,MenuItem, SelectChangeEvent } from '@mui/material'
-
-const Categories = () => {
-  const [category, setCategory]=useState<string>('all')
+import categories from './../../store/categories'
+import {observer} from 'mobx-react-lite'
+const Categories = observer(() => {
   return (
     <Box sx={{width:456 ,display: 'flex', alignItems: 'center', gap: '10px'}}>
         <Typography color="#fff" fontWeight='600' variant='h6'>Categories</Typography>
         <Select
-          value={category} displayEmpty size='small'
+          value={categories.category} displayEmpty size='small'
           style={{backgroundColor: '#fff', width:'300px', boxShadow: '-1px 4px 8px 0px rgba(34, 60, 80, 0.2)'}}
-          onChange={(event:SelectChangeEvent)=>setCategory(event.target.value)}
+          onChange={(event:SelectChangeEvent)=>categories.changeCategory(event.target.value)}
         >
             <MenuItem value={'all'}>all</MenuItem>
             <MenuItem value={'art'}>art</MenuItem>
@@ -21,6 +21,6 @@ const Categories = () => {
         </Select>
     </Box>
   )
-}
+})
 
 export default Categories

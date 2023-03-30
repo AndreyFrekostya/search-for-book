@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
-import { Route } from 'react-router-dom';
-import Header from './components/Header/Header';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
 
 function App() {
-  useEffect(()=>console.log('render'),[])
   return (
     <div className="App">
-      <Header/>
+      <Routes>
+        <Route path='/' element={<Home/>}>
+      
+        </Route>
+      </Routes>
     </div>
   );
 }

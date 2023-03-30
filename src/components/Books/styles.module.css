@@ -1,0 +1,27 @@
+.resultsH{
+    font-weight: 500;
+    text-align: center;
+    font-size: 23;
+    margin-top: 10px;
+}
+.container{
+    max-width: 1276px;
+    width:100%;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+.load{
+    text-align: center;
+    margin-top: 30px;
+    color: #8a8988;
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.load:hover{
+    text-decoration: none;
+}

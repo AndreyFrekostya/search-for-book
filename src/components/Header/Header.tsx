@@ -4,6 +4,8 @@ import styles from './styles.module.css'
 import { Typography,Container,Box } from '@mui/material';
 import Categories from '../Categories/Categories';
 import Sorting from '../SortingBy/Sorting';
+import Books from '../Books/Books';
+
 const Header = () => {
   return (
     <div className={styles.header}>
