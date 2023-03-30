@@ -18,7 +18,7 @@ const SearchInput:React.FC = observer(() => {
   }
   return (
     <div className={styles.wrap} >
-      <input  onKeyPress={(e:React.KeyboardEvent<HTMLInputElement>)=>handlerSearch(e)} type="text" value={query.query} placeholder='Поиск' onChange={(e:React.ChangeEvent<HTMLInputElement>)=>query.setQuery(e.target.value)} />
+      <input  onKeyPress={(e:React.KeyboardEvent<HTMLInputElement>)=>handlerSearch(e)} type="text" value={query.query} placeholder='Search' onChange={(e:React.ChangeEvent<HTMLInputElement>)=>query.setQuery(e.target.value)} />
       <SearchIcon onClick={()=>handlerSearch()}/>
     </div>
   )

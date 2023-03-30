@@ -1,21 +1,22 @@
-import { makeAutoObservable, toJS } from "mobx";
+import { makeAutoObservable, runInAction, toJS } from "mobx";
 import axios, { AxiosError, AxiosResponse } from 'axios'
 import sortingBy from "./sortingBy";
 import query from "./query";
 import categories from "./categories";
 export interface Book{
-    id: string
+    id: string | null
     volumeInfo:{
         title:string,
         imageLinks:{smallThumbnail:string,thumbnail:string},
         categories:string[],
         authors?:string[],
-        decription?:string
-    }
+        description?:string
+    } | null
 }
 type StatusFetching="init" | 'loading' | 'success' | 'error' | 'nothing'
 class Books{
     books:Book[]=[]
+    choosedBook:Book={id:null, volumeInfo:null}
     status:StatusFetching='init'
     total:number=0
     startIndex=0
@@ -33,12 +34,13 @@ class Books{
         const res= axios.get(api)
         .then(res=>{
             if(res.data.items!==undefined){
-                console.log(res.data.items)
-                let set:Set<Book>=new Set(res.data.items)
-                let items:Book[]=Array.from(set)
-                this.books=this.books.concat(items)
-                this.total=res.data.totalItems
-                this.status='success'
+                runInAction(()=>{
+                    let set:Set<Book>=new Set(res.data.items)
+                    let items:Book[]=Array.from(set)
+                    this.books=this.books.concat(items)
+                    this.total=res.data.totalItems
+                    this.status='success'  
+                })
             }
             else{
                 this.status='nothing'
@@ -54,6 +56,17 @@ class Books{
     }
     plusIndex(){
         this.startIndex=this.startIndex+30
+    }
+    chooseBook(book:Book){
+        //type guards
+        if(book.id!==null && book.volumeInfo!==null){
+            this.choosedBook=book
+            //if you need to save the session:
+                // sessionStorage.setItem('id', book.id)
+                // sessionStorage.setItem('title', book.volumeInfo.title)
+                // sessionStorage.setItem('description', book.volumeInfo.description)  
+                //...
+        }
     }
 }
 export default new Books()

@@ -5,8 +5,9 @@
     margin-top: 10px;
 }
 .container{
-    max-width: 1276px;
+    max-width: 1376px;
     width:100%;
+    padding: 0px 30px;
     margin: 20px auto;
     display: flex;
     flex-wrap: wrap;
@@ -15,12 +16,15 @@
 .load{
     text-align: center;
     margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     color: #8a8988;
     font-size: 20px;
     font-weight: 400;
     text-decoration: underline;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 .load:hover{
     text-decoration: none;

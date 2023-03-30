@@ -1,0 +1,71 @@
+.wrap{
+    display: flex;
+    min-height: 605px;
+}
+.detailedImg{
+    padding: 60px 100px;
+    background-color: #f3f2f0;
+    display: flex;
+    align-items: center;
+    flex-basis: 700px;
+}
+.detailedImg img{
+    display: block;
+    object-fit: cover;
+    width: 430px;
+    height: 530px;
+}
+.mainInfo{
+    padding: 60px 80px;
+    width: 1200px;
+    position: relative;
+}
+.authors{
+    display: flex;
+    gap: 10px;
+}
+h3{
+    color: #9c9b96;
+    font-size: 18px;
+    font-weight: 500;
+    display: inline;
+    word-wrap: nowrap;
+}
+h4{
+    font-size: 22px;
+    color: #000;
+    margin-top: 20px;
+}
+.authors h5{
+    font-size: 16px;
+    color: #9c9b96;
+    text-decoration: underline;
+    font-weight: 400;
+    cursor: pointer;
+    word-wrap: nowrap;
+    margin-top: 15px;
+}
+.authors h5:hover{
+    text-decoration: none;
+}
+.description{
+    padding: 20px;
+    border: 1px solid #e1e1e1;
+}
+.goBack{
+    position: absolute;
+    top: 60px;
+    right: 80px;
+}
+.goBack h1{
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #9c9b96;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.goBack h1:hover{
+    text-decoration: none;
+}

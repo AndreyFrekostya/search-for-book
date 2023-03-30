@@ -29,6 +29,7 @@
     font-size: 18px;
     word-wrap: nowrap;
     text-overflow: ellipsis;
+    color: #000;
     overflow: hidden;
 }
 .author{
